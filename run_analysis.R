@@ -65,8 +65,17 @@ prepare_dataset <- function() {
         ds <- rbind(load_dataset("train", ds_dir, features, activities), 
                     load_dataset("test", ds_dir, features, activities))
         
-        ds_mean <- aggregate(. ~ activity + subject, data = ds, FUN = mean)
+        # Clean up column names of the dataset
+        cleanNames <- names(ds)
+        cleanNames <- gsub("BodyBody", "Body", cleanNames)
+        cleanNames <- gsub("mean", "Mean", cleanNames)
+        cleanNames <- gsub("std", "Std", cleanNames)
+        cleanNames <- gsub("\\.*", "", cleanNames)
         
+        names(ds) <- cleanNames
+        
+        ds_mean <- aggregate(. ~ activity + subject, data = ds, FUN = mean)
+        browser()
         write.table(ds, row.names = F, file = "dataset.txt")
         write.table(ds_mean, row.names = F, file = "dataset_mean.txt")
 }
