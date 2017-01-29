@@ -5,7 +5,7 @@ This dataset is based on:
 Human Activity Recognition Using Smartphones Dataset
 Version 1.0
 ```
-User file dataset.zip.sha1 to validate the checksum of the dataset `sha1sum -c dataset.zip.sha1`.
+Dataset was downloaded from [this link](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip). User file dataset.zip.sha1 to validate the checksum of the dataset `sha1sum -c dataset.zip.sha1`.
 
 ## Main dataset
 Main dataset (dataset.txt) is produced by combining training and testing datasets from the HAR dataset. Activity variable and subject variable are added to the dataset. 
